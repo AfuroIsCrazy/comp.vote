@@ -1,47 +1,73 @@
-// Font - regular
+/**
+ * @fileoverview Global CSS styles, custom font definitions, and third-party library overrides.
+ */
+
+/* ----------------------------------
+ * 1. FONT DEFINITIONS (@font-face)
+ * ---------------------------------- */
+
+/**
+ * Define the "Neue Haas Grotesk" font family.
+ * Multiple font weights are defined within a single block for better management.
+ * * Note: WOFF2 format is preferred for superior compression and faster loading.
+ * Always include TTF as a fallback for older browsers.
+ */
 @font-face {
   font-family: "Neue Haas Grotesk";
-  src: url("/fonts/NHaasGroteskTXPro-55Rg.ttf");
+  font-style: normal;
+  font-display: swap; /* Tells the browser to use a fallback font while the custom font loads */
+
+  /* Regular (400) */
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  src: url("/fonts/NHaasGroteskTXPro-55Rg.woff2") format("woff2"),
+       url("/fonts/NHaasGroteskTXPro-55Rg.woff") format("woff"),
+       url("/fonts/NHaasGroteskTXPro-55Rg.ttf") format("truetype");
 }
 
-// Font - medium
 @font-face {
   font-family: "Neue Haas Grotesk";
-  src: url("/fonts/NHaasGroteskTXPro-65Md.ttf");
+  font-style: normal;
+  font-display: swap;
+
+  /* Medium (500) */
   font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+  src: url("/fonts/NHaasGroteskTXPro-65Md.woff2") format("woff2"),
+       url("/fonts/NHaasGroteskTXPro-65Md.woff") format("woff"),
+       url("/fonts/NHaasGroteskTXPro-65Md.ttf") format("truetype");
 }
 
-// Font - bold
 @font-face {
   font-family: "Neue Haas Grotesk";
-  src: url("/fonts/NHaasGroteskTXPro-75Bd.ttf");
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
+
+  /* Bold (700) */
+  font-weight: 700;
+  src: url("/fonts/NHaasGroteskTXPro-75Bd.woff2") format("woff2"),
+       url("/fonts/NHaasGroteskTXPro-75Bd.woff") format("woff"),
+       url("/fonts/NHaasGroteskTXPro-75Bd.ttf") format("truetype");
 }
 
-// Global setup
+/* ----------------------------------
+ * 2. GLOBAL SETUP
+ * ---------------------------------- */
+
 body {
-  margin: 0px;
+  /* Reset default browser margins */
+  margin: 0; 
+  /* Set background color and ensure text color is readable against it */
   background-color: #070a0e;
+  /* Apply the custom font and ensure a generic fallback is provided */
   font-family: "Neue Haas Grotesk", sans-serif;
 }
 
-// nProgress bar overrides
+/* ----------------------------------
+ * 3. THIRD-PARTY OVERRIDES (nProgress)
+ * ---------------------------------- */
+
+/* * Overrides for nProgress loading bar styles.
+ * If possible, avoid '!important' by ensuring this CSS is loaded after the nProgress styles 
+ * or by using a more specific selector (though the current IDs are already specific). 
+ */
 #nprogress .bar {
-  background: #00d395 !important;
-}
-
-#nprogress .peg {
-  box-shadow: 0 0 10px #00d395, 0 0 5px #00d395 !important;
-}
-
-#nprogress .spinner-icon {
-  border-top-color: #00d395 !important;
-  border-left-color: #00d395 !important;
-}
+  /*
